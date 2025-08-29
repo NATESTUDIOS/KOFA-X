@@ -16,14 +16,17 @@
   --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.646 0.222 264.376);
+  /* Updated accent color to #62006a (deep purple) for UNIBEN branding */
+  --accent: oklch(0.25 0.15 320);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.922 0 0);
   --input: oklch(0.97 0 0);
-  --ring: oklch(0.646 0.222 264.376 / 0.5);
-  --chart-1: oklch(0.646 0.222 264.376);
+  /* Updated ring color to match new accent */
+  --ring: oklch(0.25 0.15 320 / 0.5);
+  /* Updated chart colors to use UNIBEN purple theme */
+  --chart-1: oklch(0.25 0.15 320);
   --chart-2: oklch(0.577 0.245 27.325);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.145 0 0);
@@ -33,10 +36,12 @@
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(1 0 0);
   --sidebar-primary-foreground: oklch(0.145 0 0);
-  --sidebar-accent: oklch(0.646 0.222 264.376);
+  /* Updated sidebar accent to match theme */
+  --sidebar-accent: oklch(0.25 0.15 320);
   --sidebar-accent-foreground: oklch(1 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.646 0.222 264.376 / 0.5);
+  /* Updated sidebar ring to match theme */
+  --sidebar-ring: oklch(0.25 0.15 320 / 0.5);
 }
 
 .dark {
@@ -52,26 +57,31 @@
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.205 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.646 0.222 264.376);
+  /* Updated dark mode accent to maintain UNIBEN purple */
+  --accent: oklch(0.35 0.15 320);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.269 0 0);
   --input: oklch(0.205 0 0);
-  --ring: oklch(0.646 0.222 264.376 / 0.5);
-  --chart-1: oklch(0.646 0.222 264.376);
+  /* Updated dark mode ring to match accent */
+  --ring: oklch(0.35 0.15 320 / 0.5);
+  /* Updated dark mode chart colors */
+  --chart-1: oklch(0.35 0.15 320);
   --chart-2: oklch(0.577 0.245 27.325);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.985 0 0);
   --chart-5: oklch(0.205 0 0);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.646 0.222 264.376);
+  /* Updated dark mode sidebar primary to use purple */
+  --sidebar-primary: oklch(0.35 0.15 320);
   --sidebar-primary-foreground: oklch(1 0 0);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.646 0.222 264.376 / 0.5);
+  /* Updated dark mode sidebar ring */
+  --sidebar-ring: oklch(0.35 0.15 320 / 0.5);
 }
 
 @theme inline {

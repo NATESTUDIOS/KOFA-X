@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { BookOpen, Users } from "lucide-react"
 
 export function HeroSection() {
   return (
@@ -7,19 +7,20 @@ export function HeroSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-balance mb-6">
-            Empowering Your Business with <span className="text-accent">Innovation</span>
+            Your Gateway to <span className="text-accent">UNIBEN</span> Success
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground text-pretty mb-8 max-w-2xl mx-auto">
-            At Kofa x, we deliver cutting-edge solutions that transform your business operations and drive sustainable
-            growth in today's competitive landscape.
+            Stay informed with the latest updates, academic resources, and essential information for University of Benin
+            students. Your one-stop platform for campus life.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-              Get Started Today
-              <ArrowRight className="ml-2 h-5 w-5" />
+              Explore Resources
+              <BookOpen className="ml-2 h-5 w-5" />
             </Button>
             <Button variant="outline" size="lg">
-              Learn More
+              Join Community
+              <Users className="ml-2 h-5 w-5" />
             </Button>
           </div>
         </div>

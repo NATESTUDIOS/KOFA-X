@@ -1,31 +1,31 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Code, BarChart3, Shield, Smartphone } from "lucide-react"
+import { BookOpen, Calendar, Users, MessageCircle } from "lucide-react"
 
 export function ServicesSection() {
   const services = [
     {
-      icon: Code,
-      title: "Software Development",
+      icon: BookOpen,
+      title: "Academic Resources",
       description:
-        "Custom software solutions tailored to your business needs, built with modern technologies and best practices.",
+        "Access course materials, study guides, past questions, and academic calendars to excel in your studies.",
     },
     {
-      icon: BarChart3,
-      title: "Business Analytics",
+      icon: Calendar,
+      title: "Campus Updates",
       description:
-        "Data-driven insights and analytics to help you make informed decisions and optimize your operations.",
+        "Stay informed about important dates, events, announcements, and deadlines from the university administration.",
     },
     {
-      icon: Shield,
-      title: "Cybersecurity",
+      icon: Users,
+      title: "Student Community",
       description:
-        "Comprehensive security solutions to protect your business from digital threats and ensure compliance.",
+        "Connect with fellow UNIBEN students, join study groups, and participate in campus activities and discussions.",
     },
     {
-      icon: Smartphone,
-      title: "Digital Transformation",
+      icon: MessageCircle,
+      title: "Information Hub",
       description:
-        "End-to-end digital transformation services to modernize your business processes and technology stack.",
+        "Get answers to frequently asked questions, access student services, and find important contact information.",
     },
   ]
 
@@ -33,10 +33,9 @@ export function ServicesSection() {
     <section id="services" className="py-16 lg:py-24 bg-muted/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-balance mb-6">Our Services</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-balance mb-6">What We Offer</h2>
           <p className="text-lg text-muted-foreground text-pretty">
-            We offer a comprehensive range of services designed to help your business succeed in today's digital
-            landscape.
+            Everything you need to stay connected and succeed as a University of Benin student, all in one place.
           </p>
         </div>
 
