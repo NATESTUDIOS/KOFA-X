@@ -13,7 +13,9 @@ export default function HomePage() {
         <HeroSection />
         <AboutSection />
         <ServicesSection />
-        <TestimonialsSection />
+        <div id="updates">
+          <TestimonialsSection />
+        </div>
       </main>
       <Footer />
     </div>

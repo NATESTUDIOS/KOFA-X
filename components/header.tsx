@@ -22,15 +22,15 @@ export function Header() {
               About
             </a>
             <a href="#services" className="text-foreground hover:text-accent transition-colors">
-              Services
+              Resources
             </a>
-            <a href="#testimonials" className="text-foreground hover:text-accent transition-colors">
-              Testimonials
+            <a href="#updates" className="text-foreground hover:text-accent transition-colors">
+              Updates
             </a>
             <a href="#contact" className="text-foreground hover:text-accent transition-colors">
               Contact
             </a>
-            <Button className="bg-accent hover:bg-accent/90">Get Started</Button>
+            <Button className="bg-accent hover:bg-accent/90">Join Now</Button>
           </nav>
 
           {/* Mobile menu button */}
@@ -57,14 +57,14 @@ export function Header() {
                 className="block px-3 py-2 text-foreground hover:text-accent transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Services
+                Resources
               </a>
               <a
-                href="#testimonials"
+                href="#updates"
                 className="block px-3 py-2 text-foreground hover:text-accent transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Testimonials
+                Updates
               </a>
               <a
                 href="#contact"
@@ -74,7 +74,7 @@ export function Header() {
                 Contact
               </a>
               <div className="px-3 py-2">
-                <Button className="w-full bg-accent hover:bg-accent/90">Get Started</Button>
+                <Button className="w-full bg-accent hover:bg-accent/90">Join Now</Button>
               </div>
             </div>
           </div>
