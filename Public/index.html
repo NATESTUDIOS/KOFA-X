@@ -9,7 +9,7 @@
 
     :root {
       --primary: #62006a;
-      --accent: #ffd54f; /* soft gold */
+      --accent: #ffd54f;
       --bg-light: #f7f7fa;
       --text-light: #1c1c1c;
       --bg-dark: #0e0e11;
@@ -17,7 +17,6 @@
       --card-bg-light: rgba(255,255,255,0.85);
       --card-bg-dark: rgba(25,25,25,0.85);
     }
-
     [data-theme="light"] {
       --bg: var(--bg-light);
       --text: var(--text-light);
@@ -36,25 +35,19 @@
       color: var(--text);
       line-height: 1.6;
       transition: background 0.4s, color 0.4s;
-      position: relative;
       min-height: 100vh;
       overflow-x: hidden;
     }
-
-    /* Background texture (subtle waves) */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       background: radial-gradient(circle at top left, #62006a22, transparent 60%),
                   radial-gradient(circle at bottom right, #ffd54f22, transparent 70%);
-      background-size: cover;
-      pointer-events: none;
       z-index: -1;
     }
 
     header {
-      background: transparent;
       padding: 2rem 1rem;
       text-align: center;
     }
@@ -62,33 +55,17 @@
       font-size: 3rem;
       font-weight: 800;
       color: var(--primary);
-      animation: fadeInDown 1s ease forwards;
     }
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.8;
-      margin-top: 0.5rem;
-    }
+    header p { font-size: 1.2rem; opacity: 0.8; margin-top: 0.5rem; }
 
     .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem 1rem;
-      text-align: center;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 3rem 1rem; text-align: center;
     }
-    .hero-animation {
-      width: 300px;
-      height: 300px;
-      margin: 1rem auto;
-    }
+    .hero-animation { width: 260px; height: 260px; margin: 1rem auto; }
 
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: 2rem auto;
-    }
+    .container { width: 90%; max-width: 1100px; margin: 2rem auto; }
 
     .card {
       background: var(--card-bg);
@@ -102,76 +79,59 @@
     .card:hover { transform: translateY(-6px); }
 
     /* Map */
-    #map {
-      width: 100%;
-      height: 400px;
-      border-radius: 1rem;
-      margin-top: 1rem;
-    }
+    #map { width: 100%; height: 400px; border-radius: 1rem; margin-top: 1rem; }
     select {
-      padding: 0.6rem;
-      border-radius: 0.5rem;
-      border: 1px solid #ccc;
-      margin-bottom: 1rem;
-      width: 100%;
-      font-size: 1rem;
+      padding: 0.6rem; border-radius: 0.5rem;
+      border: 1px solid #ccc; margin-bottom: 1rem;
+      width: 100%; font-size: 1rem;
     }
 
-    /* FAQ accordion */
-    .faq-item {
-      margin-bottom: 1rem;
-    }
-    .faq-question {
-      background: var(--primary);
-      color: white;
-      padding: 0.8rem 1rem;
-      border-radius: 0.5rem;
-      cursor: pointer;
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.2rem;
+      border-radius: 0.6rem;
+      text-decoration: none;
       font-weight: 600;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: #450049; transform: scale(1.05); }
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: var(--primary); color: white; transform: scale(1.05);
+    }
+
+    /* FAQ */
+    .faq-item { margin-bottom: 1rem; }
+    .faq-question {
+      background: var(--primary); color: white;
+      padding: 0.8rem 1rem; border-radius: 0.5rem;
+      cursor: pointer; font-weight: 600;
     }
     .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
+      max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
       padding: 0 1rem;
     }
-    .faq-item.active .faq-answer {
-      max-height: 200px;
-      padding: 1rem;
-    }
+    .faq-item.active .faq-answer { max-height: 200px; padding: 1rem; }
 
-    /* Theme toggle */
+    /* Toggle */
     .toggle-btn {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 0.6rem 1rem;
-      border-radius: 2rem;
-      cursor: pointer;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
+      position: fixed; top: 1rem; right: 1rem;
+      background: var(--primary); color: white; border: none;
+      padding: 0.6rem 1rem; border-radius: 2rem; cursor: pointer;
+      font-size: 0.9rem; display: flex; align-items: center; gap: 0.4rem;
     }
 
     footer {
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.9rem;
-      background: var(--primary);
-      color: white;
-      border-top-left-radius: 1rem;
-      border-top-right-radius: 1rem;
+      text-align: center; padding: 1.5rem; font-size: 0.9rem;
+      background: var(--primary); color: white;
+      border-top-left-radius: 1rem; border-top-right-radius: 1rem;
       margin-top: 3rem;
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -217,9 +177,37 @@
       <ul>
         <li>🕘 Post-UTME starts by 8am – arrive early.</li>
         <li>📍 Bring your exam slip + valid ID.</li>
-        <li>🚍 Shuttle buses are available from the Main Gate.</li>
+        <li>🚍 Shuttle buses available from the Main Gate.</li>
         <li>🥤 Stay hydrated and calm before your test.</li>
       </ul>
+    </div>
+
+    <!-- Updates -->
+    <div class="card">
+      <h2>Latest Updates</h2>
+      <ul>
+        <li>📢 Post-UTME exams start Sept 15th, 2025.</li>
+        <li>🚌 Shuttle bus fare increased to ₦100 from main gate.</li>
+        <li>⚠️ Carry a printed copy of your exam slip, not just digital.</li>
+      </ul>
+    </div>
+
+    <!-- Events -->
+    <div class="card">
+      <h2>Upcoming Events</h2>
+      <ul>
+        <li>🎉 Freshers’ Orientation – Oct 1st at Main Auditorium.</li>
+        <li>📖 Student Union Welcome – Oct 5th at Hall 2 Car Park.</li>
+        <li>🎤 Campus Tour – every weekend (sign up via KOFA-X app).</li>
+      </ul>
+    </div>
+
+    <!-- Download App -->
+    <div class="card" style="text-align:center;">
+      <h2>Get the KOFA-X App</h2>
+      <p>Install our mobile app for offline maps, instant updates, and direct support.</p>
+      <a href="#" class="btn btn-primary">📥 Download APK</a>
+      <a href="#" class="btn btn-outline">▶ Play Store</a>
     </div>
 
     <!-- FAQ -->
@@ -238,13 +226,22 @@
         <div class="faq-answer">Use our map above to navigate easily to your faculty or hostel.</div>
       </div>
     </div>
+
+    <!-- Contact / Community -->
+    <div class="card" style="text-align:center;">
+      <h2>Join the Community</h2>
+      <p>Connect with other UNIBEN students for support, guidance and friendship.</p>
+      <a href="https://wa.me/234XXXXXXXXXX" class="btn btn-primary">💬 WhatsApp Group</a>
+      <a href="https://t.me/KOFA_X" class="btn btn-outline">📢 Telegram Channel</a>
+      <p style="margin-top:1rem;">Email: <a href="mailto:support@kofax.com">support@kofax.com</a></p>
+    </div>
   </div>
 
   <footer>
     <p>© 2025 KOFA-X | Made for UNIBEN Students</p>
   </footer>
 
-  <!-- Lottie Animation -->
+  <!-- Lottie -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.8/lottie.min.js"></script>
   <script>
     lottie.loadAnimation({
@@ -252,11 +249,11 @@
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: 'https://assets10.lottiefiles.com/packages/lf20_jcikwtux.json' /* Example animation */
+      path: 'https://assets10.lottiefiles.com/packages/lf20_jcikwtux.json'
     });
   </script>
 
-  <!-- Google Maps -->
+  <!-- Maps -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
   <script>
     let map;
@@ -280,11 +277,8 @@
       html.dataset.theme = html.dataset.theme === "light" ? "dark" : "light";
     }
 
-    // FAQ toggle
     document.querySelectorAll('.faq-question').forEach(q => {
-      q.addEventListener('click', () => {
-        q.parentElement.classList.toggle('active');
-      });
+      q.addEventListener('click', () => q.parentElement.classList.toggle('active'));
     });
   </script>
 </body>
