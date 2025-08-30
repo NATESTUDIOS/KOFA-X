@@ -3,32 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KOFA-X | UNIBEN Info Hub</title>
+  <meta name="description" content="KOFA-X - Your Smart Guide to University of Benin (UNIBEN). Explore campus, prepare for Post-UTME, and settle in with ease.">
+  <title>KOFA-X | UNIBEN Information Hub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
 
     :root {
       --primary: #62006a;
+      --primary-light: #8e2499;
+      --primary-dark: #45004d;
       --accent: #ffd54f;
+      --accent-dark: #ffc107;
       --bg-light: #f7f7fa;
       --text-light: #1c1c1c;
       --bg-dark: #0e0e11;
       --text-dark: #f3f3f3;
-      --card-bg-light: rgba(255,255,255,0.85);
-      --card-bg-dark: rgba(25,25,25,0.85);
+      --card-bg-light: rgba(255,255,255,0.92);
+      --card-bg-dark: rgba(25,25,30,0.92);
+      --success: #4caf50;
+      --warning: #ff9800;
+      --info: #2196f3;
     }
     [data-theme="light"] {
       --bg: var(--bg-light);
       --text: var(--text-light);
       --card-bg: var(--card-bg-light);
+      --shadow: rgba(0, 0, 0, 0.1);
+      --border: rgba(98, 0, 106, 0.1);
     }
     [data-theme="dark"] {
       --bg: var(--bg-dark);
       --text: var(--text-dark);
       --card-bg: var(--card-bg-dark);
+      --shadow: rgba(0, 0, 0, 0.3);
+      --border: rgba(255, 213, 79, 0.15);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
     body {
       font-family: 'Inter', sans-serif;
       background: var(--bg);
@@ -42,102 +58,373 @@
       content: "";
       position: fixed;
       inset: 0;
-      background: radial-gradient(circle at top left, #62006a22, transparent 60%),
-                  radial-gradient(circle at bottom right, #ffd54f22, transparent 70%);
+      background: radial-gradient(circle at 15% 50%, #62006a22, transparent 30%),
+                  radial-gradient(circle at 85% 80%, #ffd54f33, transparent 35%);
       z-index: -1;
     }
 
+    /* Header & Navigation */
     header {
-      padding: 2rem 1rem;
+      padding: 1.5rem 1rem;
       text-align: center;
+      position: relative;
     }
     header h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       font-weight: 800;
       color: var(--primary);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    header p { font-size: 1.2rem; opacity: 0.8; margin-top: 0.5rem; }
+    header p { 
+      font-size: 1.2rem; 
+      opacity: 0.9; 
+      margin-top: 0.5rem; 
+      font-weight: 300;
+    }
 
+    /* Navigation */
+    .nav-container {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero Section */
     .hero {
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      padding: 3rem 1rem; text-align: center;
+      display: flex; 
+      flex-direction: column;
+      align-items: center; 
+      justify-content: center;
+      padding: 2rem 1rem; 
+      text-align: center;
+      position: relative;
     }
-    .hero-animation { width: 260px; height: 260px; margin: 1rem auto; }
+    .hero-content {
+      max-width: 700px;
+    }
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+    .hero-animation { 
+      width: 280px; 
+      height: 280px; 
+      margin: 1rem auto; 
+    }
 
-    .container { width: 90%; max-width: 1100px; margin: 2rem auto; }
+    /* Container & Cards */
+    .container { 
+      width: 90%; 
+      max-width: 1100px; 
+      margin: 2rem auto; 
+      padding-bottom: 2rem;
+    }
 
     .card {
       background: var(--card-bg);
       backdrop-filter: blur(12px);
-      padding: 1.5rem;
+      padding: 1.8rem;
       border-radius: 1rem;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+      box-shadow: 0 8px 20px var(--shadow);
       margin-bottom: 2rem;
-      transition: transform 0.3s, background 0.4s;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.4s;
+      border: 1px solid var(--border);
     }
-    .card:hover { transform: translateY(-6px); }
+    .card:hover { 
+      transform: translateY(-6px); 
+      box-shadow: 0 12px 25px var(--shadow);
+    }
+    .card h2 {
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      font-size: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .card h2 i {
+      color: var(--accent);
+    }
 
-    /* Map */
-    #map { width: 100%; height: 400px; border-radius: 1rem; margin-top: 1rem; }
+    /* Map Section */
+    #map { 
+      width: 100%; 
+      height: 400px; 
+      border-radius: 1rem; 
+      margin-top: 1rem; 
+      border: 1px solid var(--border);
+    }
     select {
-      padding: 0.6rem; border-radius: 0.5rem;
-      border: 1px solid #ccc; margin-bottom: 1rem;
-      width: 100%; font-size: 1rem;
+      padding: 0.8rem; 
+      border-radius: 0.6rem;
+      border: 1px solid var(--border); 
+      margin-bottom: 1rem;
+      width: 100%; 
+      font-size: 1rem;
+      background: var(--card-bg);
+      color: var(--text);
     }
 
     /* Buttons */
     .btn {
-      display: inline-block;
-      padding: 0.7rem 1.2rem;
-      border-radius: 0.6rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 0.7rem;
       text-decoration: none;
       font-weight: 600;
-      transition: background 0.3s, transform 0.2s;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+      font-family: 'Inter', sans-serif;
     }
-    .btn-primary { background: var(--primary); color: white; }
-    .btn-primary:hover { background: #450049; transform: scale(1.05); }
+    .btn-primary { 
+      background: var(--primary); 
+      color: white; 
+    }
+    .btn-primary:hover { 
+      background: var(--primary-dark); 
+      transform: translateY(-2px); 
+      box-shadow: 0 5px 15px rgba(98, 0, 106, 0.3);
+    }
     .btn-outline {
       border: 2px solid var(--primary);
       color: var(--primary);
       background: transparent;
     }
     .btn-outline:hover {
-      background: var(--primary); color: white; transform: scale(1.05);
+      background: var(--primary); 
+      color: white; 
+      transform: translateY(-2px);
+    }
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    /* Lists */
+    ul {
+      list-style-type: none;
+    }
+    li {
+      padding: 0.5rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+    }
+    li i {
+      color: var(--accent);
+      margin-top: 0.2rem;
     }
 
     /* FAQ */
-    .faq-item { margin-bottom: 1rem; }
+    .faq-item { 
+      margin-bottom: 1rem; 
+      border: 1px solid var(--border);
+      border-radius: 0.7rem;
+      overflow: hidden;
+    }
     .faq-question {
-      background: var(--primary); color: white;
-      padding: 0.8rem 1rem; border-radius: 0.5rem;
-      cursor: pointer; font-weight: 600;
+      background: var(--primary); 
+      color: white;
+      padding: 1rem 1.2rem; 
+      border-radius: 0;
+      cursor: pointer; 
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-question i {
+      transition: transform 0.3s;
+    }
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
     }
     .faq-answer {
-      max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
-      padding: 0 1rem;
+      max-height: 0; 
+      overflow: hidden; 
+      transition: max-height 0.4s ease;
+      background: var(--card-bg);
     }
-    .faq-item.active .faq-answer { max-height: 200px; padding: 1rem; }
+    .faq-item.active .faq-answer { 
+      max-height: 300px; 
+      padding: 1.2rem; 
+    }
 
-    /* Toggle */
+    /* Toggle Button */
     .toggle-btn {
-      position: fixed; top: 1rem; right: 1rem;
-      background: var(--primary); color: white; border: none;
-      padding: 0.6rem 1rem; border-radius: 2rem; cursor: pointer;
-      font-size: 0.9rem; display: flex; align-items: center; gap: 0.4rem;
+      position: fixed; 
+      top: 1rem; 
+      right: 1rem;
+      background: var(--primary); 
+      color: white; 
+      border: none;
+      padding: 0.7rem; 
+      border-radius: 50%; 
+      cursor: pointer;
+      font-size: 1.2rem; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s, background 0.3s;
+      width: 50px;
+      height: 50px;
+    }
+    .toggle-btn:hover {
+      transform: rotate(15deg);
+      background: var(--primary-dark);
     }
 
+    /* Footer */
     footer {
-      text-align: center; padding: 1.5rem; font-size: 0.9rem;
-      background: var(--primary); color: white;
-      border-top-left-radius: 1rem; border-top-right-radius: 1rem;
+      text-align: center; 
+      padding: 2rem 1.5rem; 
+      font-size: 0.95rem;
+      background: var(--primary); 
+      color: white;
+      border-top-left-radius: 1.5rem; 
+      border-top-right-radius: 1.5rem;
       margin-top: 3rem;
+    }
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    .footer-links a:hover {
+      opacity: 0.8;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .btn-group {
+        flex-direction: column;
+        align-items: center;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+    .card:nth-child(5) { animation-delay: 0.5s; }
+    .card:nth-child(6) { animation-delay: 0.6s; }
+    .card:nth-child(7) { animation-delay: 0.7s; }
+    .card:nth-child(8) { animation-delay: 0.8s; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-dark);
     }
   </style>
 </head>
 <body>
-  <button class="toggle-btn" onclick="toggleTheme()">🌞 / 🌙</button>
+  <button class="toggle-btn" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+    <i class="fas fa-moon"></i>
+  </button>
   
+  <!-- Navigation -->
+  <div class="nav-container">
+    <nav>
+      <div class="logo">
+        <h3>KOFA-X</h3>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#map-section">Campus Map</a>
+        <a href="#info">Quick Info</a>
+        <a href="#updates">Updates</a>
+        <a href="#community">Community</a>
+      </div>
+    </nav>
+  </div>
+
   <header>
     <h1>KOFA-X</h1>
     <p>Your Smart Guide to UNIBEN</p>
@@ -145,21 +432,28 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div id="lottie" class="hero-animation"></div>
-    <h2>Welcome, Future UNIBEN Student!</h2>
-    <p>Explore campus, prepare for your Post-UTME, and settle in with ease.</p>
+    <div class="hero-content">
+      <div id="lottie" class="hero-animation"></div>
+      <h2>Welcome, Future UNIBEN Student!</h2>
+      <p>Explore campus, prepare for your Post-UTME, and settle in with ease. Everything you need in one place.</p>
+      <div class="btn-group">
+        <a href="#map-section" class="btn btn-primary"><i class="fas fa-map-marked-alt"></i> Explore Campus</a>
+        <a href="#info" class="btn btn-outline"><i class="fas fa-lightbulb"></i> Exam Tips</a>
+      </div>
+    </div>
   </section>
 
   <div class="container">
     <!-- About -->
-    <div class="card">
-      <h2>About KOFA-X</h2>
-      <p>KOFA-X is designed to help UNIBEN students, especially Post-UTME candidates, get familiar with campus. From navigation maps to quick exam tips, we’re here to make your first experience smooth.</p>
+    <div class="card" id="about">
+      <h2><i class="fas fa-info-circle"></i> About KOFA-X</h2>
+      <p>KOFA-X is designed to help UNIBEN students, especially Post-UTME candidates, get familiar with campus. From navigation maps to quick exam tips, we're here to make your first experience smooth. Our platform provides real-time updates, event information, and a supportive community to help you thrive at UNIBEN.</p>
     </div>
 
     <!-- Map -->
-    <div class="card">
-      <h2>Find Your Way Around UNIBEN</h2>
+    <div class="card" id="map-section">
+      <h2><i class="fas fa-map"></i> Find Your Way Around UNIBEN</h2>
+      <p>Select a location from the dropdown to see it on the map:</p>
       <select id="placeSelect" onchange="showPlace()">
         <option value="">Select a place</option>
         <option value="6.3970,5.6037">Main Gate</option>
@@ -167,83 +461,166 @@
         <option value="6.3989,5.6060">Faculty of Engineering</option>
         <option value="6.3965,5.6021">Hall 2 Hostel</option>
         <option value="6.4001,5.6055">Exam Center</option>
+        <option value="6.3993,5.6028">Library</option>
+        <option value="6.3975,5.6052">Faculty of Science</option>
+        <option value="6.3958,5.6043">Sports Complex</option>
       </select>
       <div id="map"></div>
     </div>
 
     <!-- Quick Info -->
-    <div class="card">
-      <h2>Quick Info</h2>
+    <div class="card" id="info">
+      <h2><i class="fas fa-bolt"></i> Quick Info</h2>
       <ul>
-        <li>🕘 Post-UTME starts by 8am – arrive early.</li>
-        <li>📍 Bring your exam slip + valid ID.</li>
-        <li>🚍 Shuttle buses available from the Main Gate.</li>
-        <li>🥤 Stay hydrated and calm before your test.</li>
+        <li><i class="fas fa-clock"></i> Post-UTME starts by 8am – arrive early.</li>
+        <li><i class="fas fa-file-alt"></i> Bring your exam slip + valid ID.</li>
+        <li><i class="fas fa-bus"></i> Shuttle buses available from the Main Gate.</li>
+        <li><i class="fas fa-tint"></i> Stay hydrated and calm before your test.</li>
+        <li><i class="fas fa-utensils"></i> Cafeteria opens at 7:00am for breakfast.</li>
+        <li><i class="fas fa-parking"></i> Parking available near the main gate.</li>
       </ul>
     </div>
 
     <!-- Updates -->
-    <div class="card">
-      <h2>Latest Updates</h2>
+    <div class="card" id="updates">
+      <h2><i class="fas fa-bullhorn"></i> Latest Updates</h2>
       <ul>
-        <li>📢 Post-UTME exams start Sept 15th, 2025.</li>
-        <li>🚌 Shuttle bus fare increased to ₦100 from main gate.</li>
-        <li>⚠️ Carry a printed copy of your exam slip, not just digital.</li>
+        <li><i class="fas fa-exclamation-circle"></i> Post-UTME exams start Sept 15th, 2025.</li>
+        <li><i class="fas fa-bus"></i> Shuttle bus fare increased to ₦100 from main gate.</li>
+        <li><i class="fas fa-print"></i> Carry a printed copy of your exam slip, not just digital.</li>
+        <li><i class="fas fa-wifi"></i> Free WiFi available at the main auditorium for candidates.</li>
       </ul>
     </div>
 
     <!-- Events -->
     <div class="card">
-      <h2>Upcoming Events</h2>
+      <h2><i class="fas fa-calendar-alt"></i> Upcoming Events</h2>
       <ul>
-        <li>🎉 Freshers’ Orientation – Oct 1st at Main Auditorium.</li>
-        <li>📖 Student Union Welcome – Oct 5th at Hall 2 Car Park.</li>
-        <li>🎤 Campus Tour – every weekend (sign up via KOFA-X app).</li>
+        <li><i class="fas fa-graduation-cap"></i> Freshers' Orientation – Oct 1st at Main Auditorium.</li>
+        <li><i class="fas fa-users"></i> Student Union Welcome – Oct 5th at Hall 2 Car Park.</li>
+        <li><i class="fas fa-map-signs"></i> Campus Tour – every weekend (sign up via KOFA-X app).</li>
+        <li><i class="fas fa-book-open"></i> Departmental introductions – Check notice boards for schedule.</li>
       </ul>
     </div>
 
     <!-- Download App -->
     <div class="card" style="text-align:center;">
-      <h2>Get the KOFA-X App</h2>
+      <h2><i class="fas fa-mobile-alt"></i> Get the KOFA-X App</h2>
       <p>Install our mobile app for offline maps, instant updates, and direct support.</p>
-      <a href="#" class="btn btn-primary">📥 Download APK</a>
-      <a href="#" class="btn btn-outline">▶ Play Store</a>
+      <div class="btn-group">
+        <a href="#" class="btn btn-primary"><i class="fas fa-download"></i> Download APK</a>
+        <a href="#" class="btn btn-outline"><i class="fab fa-google-play"></i> Play Store</a>
+        <a href="#" class="btn btn-outline"><i class="fab fa-apple"></i> App Store</a>
+      </div>
     </div>
 
     <!-- FAQ -->
     <div class="card">
-      <h2>FAQ</h2>
+      <h2><i class="fas fa-question-circle"></i> FAQ</h2>
       <div class="faq-item">
-        <div class="faq-question">Where is the Post-UTME exam center?</div>
-        <div class="faq-answer">Most exams hold at the Main Auditorium or ICT centers. Check your slip for details.</div>
+        <div class="faq-question">Where is the Post-UTME exam center? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Most exams hold at the Main Auditorium or ICT centers. Check your slip for details. Arrive at least 30 minutes early to locate your specific exam hall.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-question">Can I come with my phone?</div>
-        <div class="faq-answer">Phones are usually not allowed inside the exam hall. Keep them safe outside.</div>
+        <div class="faq-question">Can I come with my phone? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Phones are usually not allowed inside the exam hall. Keep them safe outside or leave them at your accommodation to avoid distractions or confiscation.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-question">How do I find my faculty?</div>
-        <div class="faq-answer">Use our map above to navigate easily to your faculty or hostel.</div>
+        <div class="faq-question">How do I find my faculty? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Use our map above to navigate easily to your faculty or hostel. You can also ask for directions at the information desk near the main gate.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What documents do I need? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Bring your printed exam slip, valid ID (school ID, national ID, or passport), and writing materials. It's also advisable to bring a water bottle.</div>
       </div>
     </div>
 
     <!-- Contact / Community -->
-    <div class="card" style="text-align:center;">
-      <h2>Join the Community</h2>
+    <div class="card" style="text-align:center;" id="community">
+      <h2><i class="fas fa-users"></i> Join the Community</h2>
       <p>Connect with other UNIBEN students for support, guidance and friendship.</p>
-      <a href="https://wa.me/234XXXXXXXXXX" class="btn btn-primary">💬 WhatsApp Group</a>
-      <a href="https://t.me/KOFA_X" class="btn btn-outline">📢 Telegram Channel</a>
-      <p style="margin-top:1rem;">Email: <a href="mailto:support@kofax.com">support@kofax.com</a></p>
+      <div class="btn-group">
+        <a href="https://wa.me/234XXXXXXXXXX" class="btn btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp Group</a>
+        <a href="https://t.me/KOFA_X" class="btn btn-outline"><i class="fab fa-telegram"></i> Telegram Channel</a>
+        <a href="https://facebook.com/groups/KOFAX" class="btn btn-outline"><i class="fab fa-facebook"></i> Facebook Group</a>
+      </div>
+      <p style="margin-top:1.5rem;">Email: <a href="mailto:support@kofax.com" style="color: var(--primary);">support@kofax.com</a></p>
     </div>
   </div>
 
   <footer>
-    <p>© 2025 KOFA-X | Made for UNIBEN Students</p>
+    <div class="footer-content">
+      <p>© 2025 KOFA-X | Made for UNIBEN Students</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Feedback</a>
+      </div>
+    </div>
   </footer>
 
   <!-- Lottie -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.8/lottie.min.js"></script>
+  <!-- Maps -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
   <script>
+    // Theme Toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const newTheme = html.dataset.theme === "light" ? "dark" : "light";
+      html.dataset.theme = newTheme;
+      
+      // Update icon
+      const icon = document.querySelector('.toggle-btn i');
+      icon.className = newTheme === "light" ? "fas fa-moon" : "fas fa-sun";
+      
+      // Save preference
+      localStorage.setItem('theme', newTheme);
+    }
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.dataset.theme = savedTheme;
+      const icon = document.querySelector('.toggle-btn i');
+      icon.className = savedTheme === "light" ? "fas fa-moon" : "fas fa-sun";
+    }
+
+    // Initialize Map
+    let map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 6.3970, lng: 5.6037 },
+        zoom: 16,
+        styles: [
+          {
+            "featureType": "all",
+            "elementType": "geometry",
+            "stylers": [{ "color": document.documentElement.dataset.theme === "dark" ? "#242424" : "#f5f5f5" }]
+          },
+          {
+            "featureType": "all",
+            "elementType": "labels.text.fill",
+            "stylers": [{ "color": document.documentElement.dataset.theme === "dark" ? "#746855" : "#616161" }]
+          }
+        ]
+      });
+    }
+    
+    function showPlace() {
+      const val = document.getElementById("placeSelect").value;
+      if (!val) return;
+      const [lat, lng] = val.split(",").map(Number);
+      map.setCenter({ lat, lng });
+      new google.maps.Marker({ 
+        position: { lat, lng }, 
+        map,
+        animation: google.maps.Animation.DROP
+      });
+    }
+
+    // Initialize Lottie Animation
     lottie.loadAnimation({
       container: document.getElementById('lottie'),
       renderer: 'svg',
@@ -251,34 +628,30 @@
       autoplay: true,
       path: 'https://assets10.lottiefiles.com/packages/lf20_jcikwtux.json'
     });
-  </script>
 
-  <!-- Maps -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
-  <script>
-    let map;
-    function initMap() {
-      map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 6.3970, lng: 5.6037 },
-        zoom: 16,
-      });
-    }
-    function showPlace() {
-      const val = document.getElementById("placeSelect").value;
-      if (!val) return;
-      const [lat, lng] = val.split(",").map(Number);
-      map.setCenter({ lat, lng });
-      new google.maps.Marker({ position: { lat, lng }, map });
-    }
-    window.onload = initMap;
-
-    function toggleTheme() {
-      const html = document.documentElement;
-      html.dataset.theme = html.dataset.theme === "light" ? "dark" : "light";
-    }
-
+    // FAQ functionality
     document.querySelectorAll('.faq-question').forEach(q => {
-      q.addEventListener('click', () => q.parentElement.classList.toggle('active'));
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
     });
   </script>
 </body>
